@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Validações</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1>Cadastro de Usuário</h1>
+            <p>Preencha o formulário com seus dados</p>
+        </div>
+        
+        <div class="form-body">
+            <form id="myForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" name="nome" 
+                           pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" 
+                           title="Nome e sobrenome, ambos com primeira letra maiúscula, sem números ou caracteres especiais" 
+                           required>
+                    <span class="error" id="nome-error"></span>
+                    <span class="hint">Exemplo: Alan Turing</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <div class="input-icon">
+                        <input type="email" id="email" name="email" 
+                               pattern="^[a-z]+@[a-z]+\.br$" 
+                               title="E-mail deve conter @ e terminar com .br, sem letras maiúsculas" 
+                               required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <span class="error" id="email-error"></span>
+                    <span class="hint">Exemplo: a@a.br</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <div class="input-icon">
+                        <input type="password" id="senha" name="senha" 
+                               pattern="^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8}$" 
+                               title="Deve ter exatamente 8 caracteres, pelo menos uma letra maiúscula e um número" 
+                               required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <span class="error" id="senha-error"></span>
+                    <span class="hint">Exemplo: 518R2r5e (8 caracteres com pelo menos 1 maiúscula e 1 número)</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <div class="input-icon">
+                        <input type="text" id="cpf" name="cpf" 
+                               pattern="^\d{3}\.\d{3}\.\d{3}-\d{2}$" 
+                               title="Formato: xxx.xxx.xxx-xx" 
+                               required>
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <span class="error" id="cpf-error"></span>
+                    <span class="hint">Exemplo: 123.456.789-09</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <div class="input-icon">
+                        <input type="tel" id="telefone" name="telefone" 
+                               pattern="^(\(\d{2}\) |\d{2} )9\d{4}-?\d{4}$" 
+                               title="Formato: (xx) 9xxxx-xxxx ou (xx) 9xxxxxxxx ou xx 9xxxxxxxx" 
+                               required>
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <span class="error" id="telefone-error"></span>
+                    <span class="hint">Exemplo: (91) 99999-9999</span>
+                </div>
+
+                <button type="submit">Cadastrar <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
